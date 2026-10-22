@@ -9,7 +9,9 @@
 //--------------------------------------------------------------------------------------
 float4 VS( float4 Pos : POSITION ) : SV_POSITION
 {
-    return Pos;
+    float3 p = 0.6f * Pos.xyz;          // масштаб: уменьшаем в 0.6 раза
+    p += float3( 0.3f, 0.2f, 0.0f );    // сдвиг: вправо и вверх
+    return float4( p, 1.0f );
 }
 
 
@@ -18,5 +20,5 @@ float4 VS( float4 Pos : POSITION ) : SV_POSITION
 //--------------------------------------------------------------------------------------
 float4 PS( float4 Pos : SV_POSITION ) : SV_Target
 {
-    return float4( 1.0f, 1.0f, 0.0f, 1.0f );    // Yellow, with Alpha = 1
+    return float4( 1.0f, 0.45f, 0.1f, 1.0f );   // Orange, Alpha = 1
 }
