@@ -108,9 +108,9 @@ HRESULT InitWindow( HINSTANCE hInstance, int nCmdShow )
 
     // Create window
     g_hInst = hInstance;
-    RECT rc = { 0, 0, 800, 600 };
+    RECT rc = { 0, 0, 1024, 768 };
     AdjustWindowRect( &rc, WS_OVERLAPPEDWINDOW, FALSE );
-    g_hWnd = CreateWindow( L"TutorialWindowClass", L"Direct3D 11 Tutorial 1: Direct3D 11 Basics",
+    g_hWnd = CreateWindow( L"TutorialWindowClass", L"Øèëüäò Äàíèıëü Ñåğãååâè÷",
                            WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
                            CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
                            nullptr );
@@ -316,8 +316,9 @@ HRESULT InitDevice()
 //--------------------------------------------------------------------------------------
 void Render()
 {
-    // Just clear the backbuffer
-    g_pImmediateContext->ClearRenderTargetView( g_pRenderTargetView, Colors::MidnightBlue );
+    // Just clear the backbuffer (teal)
+    float ClearColor[4] = { 0.10f, 0.60f, 0.65f, 1.0f };
+    g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, ClearColor);
     g_pSwapChain->Present( 0, 0 );
 }
 
